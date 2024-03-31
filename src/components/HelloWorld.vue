@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <p> HBG-FE Test : NJK</p>
+    <p> HBG-FE Test : NJK 0331
+    </p>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
