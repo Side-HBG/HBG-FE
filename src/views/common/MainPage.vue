@@ -14,7 +14,9 @@
 
 <script>
   import axios from "axios";
-  const URL="http://192.168.50.199:8081/price?item_id=1147560";
+  // const URL="http://192.168.50.199:8081/price?item_id=1147560";
+  // const URL = "http://10.10.10.2:81/api/v1/steam/price?item_id=Neurotypical";
+  const URL = "http://192.168.50.199:8081/api/v1/steam/price?item_id=Neurotypical";
   //const URL="https://jsonplaceholder.typicode.com/todos/";
   export default{
     name:"App",
@@ -26,10 +28,8 @@
     },
     methods:{
       call911(){
-        axios.get(URL,{
-          header:{
-            "Content-Type": "multipart/form-data",
-          }})
+        // axios.get(URL,{ header:{"Content-Type": "multipart/form-data", }})
+        axios.get(URL)
         //axios.get(URL + this.id)
           .then((result) => {
             // alert(result.data);
