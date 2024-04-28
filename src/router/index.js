@@ -6,12 +6,17 @@ const router = createRouter({
         {   //로그인 컴포넌트 추가
             path: '/',
             name: 'Login',
-            component: () => import("../views/common/LoginMainPage.vue")
+            component: () => import("@/views/common/LoginMainPage.vue")
+        },
+        {   //회원가입
+            path: '/signUp',
+            name: 'signUp',
+            component: () => import("@/views/common/SignUp.vue"),
         },
         {   //메인화면
             path: '/main',
             name: 'MainPage',
-            component: () => import("../views/common/MainPage.vue"),
+            component: () => import("@/views/common/MainPage.vue"),
         },
     ],
 });
