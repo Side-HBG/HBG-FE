@@ -1,6 +1,8 @@
 <template>
   <div>
     <div>
+
+
       <h2>Please Log In</h2>
       <div id="loginForm">
         <form @submit.prevent="fnLogin">
@@ -12,11 +14,14 @@
           </p>
           <p>
             <button type="submit" class="w3-button w3-green w3-round">Login</button>
+            <button type="submit" class="w3-button w3-green w3-round">vpdl</button>
           </p>
         </form>
       </div>
     </div>
   </div>
+
+  <a href="/main" > 이동</a>
 </template>
 
 <script>
@@ -41,7 +46,7 @@ export default {
       }
 
       alert('로그인 되었습니다.');
-      this.$router.push("/MainPage").catch(()=>{});
+      this.$router.push("/main").catch(()=>{});
 
     }
   }

@@ -1,55 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import List from "@/views/board/List"
-import Detail from "@/views/board/Detail"
-import Write from "@/views/board/Write"
-import Login from "@/views/common/Login"
-import MainPage from "@/views/common/mainPage"
-
-const routes = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login  //로그인 컴포넌트 추가
-    },
-    {
-        path: '/about',
-        name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-    },
-    {
-        path: '/board/list',
-        name: 'List',
-        component: List
-    },
-    {
-        path: '/board/detail',
-        name: 'Detail',
-        component: Detail
-    },
-    {
-        path: '/board/write',
-        name: 'Write',
-        component: Write
-    },
-    {
-        path: '/main',
-        name: 'Main',
-        component: MainPage
-    }
-]
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
-    routes
-})
+    history: createWebHistory(""),
+    routes: [
+        {   //로그인 컴포넌트 추가
+            path: '/',
+            name: 'Login',
+            component: () => import("../views/common/LoginMainPage.vue")
+        },
+        {   //메인화면
+            path: '/main',
+            name: 'MainPage',
+            component: () => import("../views/common/MainPage.vue"),
+        },
+    ],
+});
 
-export default router
+export default router;
