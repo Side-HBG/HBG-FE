@@ -14,8 +14,8 @@
 
 <script>
   import axios from "axios";
-  //const URL="http://192.168.50.199:8081/price?item_id=1147560";
-  const URL="https://jsonplaceholder.typicode.com/todos/";
+  const URL="http://192.168.50.199:8081/price?item_id=1147560";
+  //const URL="https://jsonplaceholder.typicode.com/todos/";
   export default{
     name:"App",
     data(){
@@ -26,19 +26,25 @@
     },
     methods:{
       call911(){
-        axios.get(URL + this.id)
-            .then((result) => {
-              alert(result.data);
-              this.data.push(result.data);
-              // alert(JSON.parse(response.data));
-              this.id++; // 나이스
-            })
-            .catch(function(error){
-              alert(error);
-            })
-            .finally(() => {
-              // console.log("Finally");
-            });
+        axios.get(URL,{
+          header:{
+            "Content-Type": "multipart/form-data",
+          }})
+        //axios.get(URL + this.id)
+          .then((result) => {
+            // alert(result.data);
+            const test = JSON.stringify(result.data);
+            alert(test);
+            this.data.push(result.data);
+            // alert(JSON.parse(response.data));
+            this.id++; // 나이스
+          })
+          .catch(function(error){
+            alert(error);
+          })
+          .finally(() => {
+            // console.log("Finally");
+          });
       },
     },
   };
