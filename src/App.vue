@@ -1,8 +1,21 @@
 <template>
-  <router-view/>
+  <commonHeader />
+  <router-view />
+  <commonFooter />
 </template>
 
-<script> </script>
+<script>
+import commonHeader from './views/common/commonHeader.vue';
+import commonFooter from './views/common/commonFooter.vue';
+
+export default {
+  name: 'App',
+  components:{
+    commonHeader,
+    commonFooter
+  }
+}
+</script>
 
 <style>
 #app {

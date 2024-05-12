@@ -1,23 +1,19 @@
 <template>
   <div>
-    <div>
-
-
-      <h2>Please Log In</h2>
-      <div id="loginForm">
-        <form @submit.prevent="fnLogin">
-          <p>
-            <input name="txtUserId" placeholder="Enter your ID" v-model="user_id"><br>
-          </p>
-          <p>
-            <input name="txtPassword" placeholder="Enter your password" v-model="user_pw" type="password">
-          </p>
-          <p>
-            <button @click="fnLogin">로그인</button>
-            <button @click="fnSignUp">회원가입</button>
-          </p>
-        </form>
-      </div>
+    <h2>Please Log In</h2>
+    <div id="loginForm">
+      <form @submit.prevent="fnLogin">
+        <p>
+          <input type="text" name="txtUserId" placeholder="Enter your ID" v-model="user_id"><br>
+        </p>
+        <p>
+          <input type="password" name="txtPassword" placeholder="Enter your password" v-model="user_pw">
+        </p>
+        <p>
+          <button @click="fnLogin">로그인</button>
+          <button @click="fnSignUp">회원가입</button>
+        </p>
+      </form>
     </div>
   </div>
 
@@ -45,6 +41,10 @@ export default {
         return false;
       }
 
+      /*
+      여기서 로그인 메소드 구현
+       */
+
       alert("로그인 되었습니다.");
       this.$router.push("/main").catch(()=>{});
     } //fnLogin
@@ -57,8 +57,5 @@ export default {
 </script>
 
 <style>
-#loginForm {
-  width: 500px;
-  margin: auto;
-}
+
 </style>

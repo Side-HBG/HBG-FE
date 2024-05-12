@@ -1,61 +1,74 @@
 
-<template>
-  <h1>이것은 메인페이지 입니다</h1>
-  <h2>아까는 안됐는데 지금은 되는 이유가 뭐냐고요</h2>
-  <h3>지대얼탱없는</h3>
+<template >
+  <body>
+    <h1 >게임 가격 조회</h1>
 
-  <div id="app">
-    <button id="btnClick" name="btnClick" @click="call911()" >왜call안하냐고요</button>
+    <div id="app">
+      <input type="text" v-model="txtSearchGameName" @keyup.enter="searchGame()" placeholder="게임 검색하기">
+      <button id="btnClick" name="btnClick" @click="searchGame()" >검색</button>
 
-    <p>{{ data }}</p>
-    <p>{{id}}</p>
-  </div>
+
+      <p>{{gameName}}</p>
+      <p>{{gamePrice}}</p>
+      <p>{{gameDisCountPercent}}</p>
+      <p>{{gameTotalPrice}}</p>
+    </div>
+  </body>
 </template>
 
 <script>
   import axios from "axios";
   // const URL="http://192.168.50.199:8081/price?item_id=1147560";
-  // const URL = "http://10.10.10.2:81/api/v1/steam/price?item_id=Neurotypical";
-  const URL = "http://192.168.50.199:8081/api/v1/steam/price?item_id=Neurotypical";
+  //let URL = "http://10.10.10.2:81/api/v1/steam/price?item_id="; //Neurotypical
+   let URL = "http://192.168.50.199:8081/api/v1/steam/price?item_id=";
   //const URL="https://jsonplaceholder.typicode.com/todos/";
+
+  /*{"result":true,"statusCode":200,"responseMessage":"OK","data":{"name":"Neurotypical","initial":"₩ 21,500","discount_percent":"0","price":"₩ 21,500"}}
+  *
+  *  */
+
   export default{
     name:"App",
     data(){
       return{
-        data: [],
-        id: 1,
+        gameName: "name",
+        gamePrice: 0,
+        gameDisCountPercent: 0,
+        gameTotalPrice: 0,
       };
     },
     methods:{
-      call911(){
-        // axios.get(URL,{ header:{"Content-Type": "multipart/form-data", }})
-        axios.get(URL)
-        //axios.get(URL + this.id)
+      searchGame(){
+        let sendUrl = URL + this.txtSearchGameName;
+        //URL += this.txtSearchGameName;
+        axios.get(sendUrl)
           .then((result) => {
-            // alert(result.data);
-            const test = JSON.stringify(result.data);
-            alert(test);
-            this.data.push(result.data);
-            // alert(JSON.parse(response.data));
-            this.id++; // 나이스
+            const game = result.data.data;
+
+            if(result.data.result === true && result.data.statusCode === 200){
+              this.gameName = game.name;
+              this.gamePrice = game.initial;
+              this.gameDisCountPercent = game.discount_percent + "%";
+              this.gameTotalPrice = game.price;
+
+            }
+            if(result.data.statusCode === 500){
+              this.gameName = "검색된 게임이 존재하지 않습니다.";
+              this.gamePrice = null;
+              this.gameDisCountPercent = null;
+              this.gameTotalPrice = null;
+             // this.$router.push("/500").catch(() => {});
+            }
           })
           .catch(function(error){
-            alert(error);
+            alert("error: " + error);
           })
           .finally(() => {
-            // console.log("Finally");
           });
       },
     },
   };
-   /* axios.get('http://192.168.50.199:8081/price?item_id=1147560',{
-      header:{
-        "Content-Type": `application/json:charset=UTF-8`,
-        "Accept": "application/json",
-        "Access-Control-Allow-Origin":"http://10.10.10.1:443",
-        "Access-Control-Allow-Credential":"true",
-      }
-    })*/
+
 
 
 
@@ -64,5 +77,7 @@
 
 
 <style>
-
+body{
+  padding-top: 10px;
+}
 </style>
