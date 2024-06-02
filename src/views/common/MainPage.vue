@@ -65,13 +65,15 @@
               this.gameTotalPrice = game.price;*/
 
             }else if(result.data.statusCode === 500){
+              alert("500Error");
               /*this.gameName = "검색된 게임이 존재하지 않습니다.";
               this.gamePrice = null;
               this.gameDisCountPercent = null;
               this.gameTotalPrice = null;*/
-             // this.$router.push("/500").catch(() => {});
+              this.$router.push("/500").catch(() => {});
             }else{
-              this.gameName = JSON.stringify(game);
+              this.gameList = result.data.data;
+              // this.gameName = JSON.stringify(game);
             }
           })
           .catch(function(error){
