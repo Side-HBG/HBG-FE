@@ -5,3 +5,8 @@ module.exports = defineConfig({
     devtool: 'source-map',
   }
 })
+module.exports = {
+  devServer: {
+    allowedHosts: "all",
+  },
+};
