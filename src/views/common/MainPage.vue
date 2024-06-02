@@ -21,7 +21,7 @@
   import axios from "axios";
   // const URL="http://192.168.50.199:8081/price?item_id=1147560";
   //let URL = "http://10.10.10.2:81/api/v1/steam/price?item_id="; //Neurotypical
-   let URL = "http://192.168.50.199:8081/api/v1/steam/pricev2?item_id=";
+   let URL = "http://192.168.50.199:8081/api/v1/steam/price?item_id=";
   //const URL="https://jsonplaceholder.typicode.com/todos/";
 
   /*{"result":true,"statusCode":200,"responseMessage":"OK","data":{"name":"Neurotypical","initial":"₩ 21,500","discount_percent":"0","price":"₩ 21,500"}}
