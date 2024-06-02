@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hgb-front
+  namespace: hgb-fe-test
+spec:
+  selector:
+    matchLabels:
+      app: hgb-front
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hgb-front
+    spec:
+      containers:
+        - name: test
+          image: vulcanos/hgb-fe-test:latest
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1000m"
+            limits:
+              memory: "1Gi"
+              cpu: "3000m"
+          ports:
+            - name: http-port
+              containerPort: 80
+#          envFrom:
+#            - secretRef:
+#                name: hgb-server-secret
+  serviceName: hgb-front-service
