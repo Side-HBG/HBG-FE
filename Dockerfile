@@ -4,9 +4,9 @@ FROM node:20.11.1-alpine3.19
 WORKDIR /usr/src/app
 
 # Install app dependencies
-COPY package*.json ./
+COPY vue/ ./
 RUN npm install
-COPY ./src ./src
+
 
 EXPOSE 80
 
