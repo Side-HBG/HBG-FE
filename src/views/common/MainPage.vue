@@ -49,12 +49,12 @@
         axios.get(sendUrl)
           .then((result) => {
             // alert(typeof result);
-            const game = result.data.data[0];
+            // const game = result.data.data[0];
 
             // const game = result.data.data[0];
 
             alert(JSON.stringify(result));
-            alert(JSON.stringify(result.data.data[0]));
+            // alert(JSON.stringify(result.data.data[0]));
             // alert(result);
             if(result.data.result === true && result.data.statusCode === 200){
               this.gameList = result.data.data;
