@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: hgb-front
+        istio-injection: enabled
     spec:
       containers:
         - name: test

@@ -4,6 +4,9 @@ kind: Service
 metadata:
   name: hgb-front-service
   namespace: hgb-fe
+  labels:
+    app: hgb-front
+    istio-injection: enabled
 spec:
   type: ClusterIP
   ports:
