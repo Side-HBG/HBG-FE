@@ -8,10 +8,10 @@
       <button id="btnClick" name="btnClick" @click="searchGame()" >검색</button>
 
       <li v-for="game in gameList" v-bind:key="game.gameName">
-        <p>{{game.name}}</p>
-        <p>{{game.initial}}</p>
-        <p>{{game.discount_percent}}</p>
-        <p>{{game.price}}</p>
+        <p>게임명: {{game.name}}</p>
+        <p>정가: {{game.initial}}</p>
+        <p>할인율: {{game.discount_percent}} %</p>
+        <p>판매가격: {{game.price}}</p>
       </li>
     </div>
   </body>
@@ -21,7 +21,8 @@
   import axios from "axios";
   // const URL="http://192.168.50.199:8081/price?item_id=1147560";
   //let URL = "http://10.10.10.2:81/api/v1/steam/price?item_id="; //Neurotypical
-   let URL = "http://192.168.50.199:8081/api/v1/steam/price?item_id=";
+   // let URL = process.env.VUE_APP_API_URL+`api/v1/steam/pricev2?item_id=`;
+   let URL = process.env.VUE_APP_API_URL;
   //const URL="https://jsonplaceholder.typicode.com/todos/";
 
   /*{"result":true,"statusCode":200,"responseMessage":"OK","data":{"name":"Neurotypical","initial":"₩ 21,500","discount_percent":"0","price":"₩ 21,500"}}
@@ -53,7 +54,7 @@
 
             // const game = result.data.data[0];
 
-            alert(JSON.stringify(result));
+            //alert(JSON.stringify(result));
             // alert(JSON.stringify(result.data.data[0]));
             // alert(result);
             if(result.data.result === true && result.data.statusCode === 200){
@@ -65,7 +66,7 @@
               this.gameTotalPrice = game.price;*/
 
             }else if(result.data.statusCode === 500){
-              alert("500Error");
+              // alert("500Error");
               /*this.gameName = "검색된 게임이 존재하지 않습니다.";
               this.gamePrice = null;
               this.gameDisCountPercent = null;

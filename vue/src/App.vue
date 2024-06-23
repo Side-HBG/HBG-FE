@@ -13,6 +13,9 @@ export default {
   components:{
     commonHeader,
     commonFooter
+  },
+  mounted(){
+    console.log(process.env.VUE_APP_API_URL);
   }
 }
 </script>
