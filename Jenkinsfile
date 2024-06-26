@@ -6,10 +6,7 @@ pipeline{
         NAMESPACE = 'hgb-fe'
         DEPLOYMENT = 'hgb-front'
         K8S_PATH = './dev-ops/k8s/'
-        BUILD_VERSION = """${sh(
-                returnStdout:true,
-                script:'git describe --tags --abbrev=0 | tr -d \'\12\''
-            )}"""
+        BRANCH_NAME = "${env.GIT_BRANCH.split('/').size() == 1 ? env.GIT_BRANCH.split('/')[-1] : env.GIT_BRANCH.split('/')[1..-1].join('/')}"
     }
     agent any
     stages {
@@ -31,7 +28,7 @@ pipeline{
             steps{
                 script{
                     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credential'){
-                        dockerImage.push("${BUILD_VERSION}")
+                        dockerImage.push("${BRANCH_NAME}")
                         dockerImage.push("latest")
                     }
                     sh '''
