@@ -28,6 +28,9 @@ spec:
           ports:
             - name: http-port
               containerPort: 80
+          env:
+            - name: VUE_APP_API_URL
+              value: "hgb-backend-service.hgb-be.svc.cluster.local:81/api/v1/steam/pricev2?item_id="
 #          envFrom:
 #            - secretRef:
 #                name: hgb-server-secret
