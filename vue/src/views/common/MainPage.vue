@@ -19,8 +19,6 @@
 
 <script>
   import axios from "axios";
-  // const URL="http://192.168.50.199:8081/price?item_id=1147560";
-  //let URL = "http://10.10.10.2:81/api/v1/steam/price?item_id="; //Neurotypical
    // let URL = process.env.VUE_APP_API_URL+`api/v1/steam/pricev2?item_id=`;
    let URL = process.env.VUE_APP_API_URL;
   //const URL="https://jsonplaceholder.typicode.com/todos/";
