@@ -6,7 +6,11 @@ pipeline{
         NAMESPACE = 'hgb-fe'
         DEPLOYMENT = 'hgb-front'
         K8S_PATH = './dev-ops/k8s/'
-        BRANCH_NAME = "${env.GIT_BRANCH.split('/').size() == 1 ? env.GIT_BRANCH.split('/')[-1] : env.GIT_BRANCH.split('/')[1..-1].join('/')}"
+        DOCKER_REPOSITORY = 'https://nexus-service.nexus3.svc.cluster.local:5443'
+        BUILD_VERSION = """${sh(
+                returnStdout:true,
+                script:'git describe --tags --abbrev=0 | tr -d \'\12\''
+            )}"""
     }
     agent any
     stages {
@@ -27,8 +31,8 @@ pipeline{
         stage('docker-push'){
             steps{
                 script{
-                    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credential'){
-                        dockerImage.push("${BRANCH_NAME}")
+                    docker.withRegistry("${DOCKER_REPOSITORY}", 'docker-nexus-credential'){
+                        dockerImage.push("${BUILD_VERSION}")
                         dockerImage.push("latest")
                     }
                     sh '''
