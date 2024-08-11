@@ -48,4 +48,5 @@ export default {
   width: 500px;
   margin: auto;
 }
+@import url("../../css/styles.css");
 </style>

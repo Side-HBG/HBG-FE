@@ -1,35 +1,205 @@
-
 <template >
+  메인시작
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Landing Page - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../../css/styles.css" rel="stylesheet" />
+  </head>
   <body>
-    <h1 >게임 가격 조회</h1>
 
-    <div id="app">
-      <input type="text" v-model="txtSearchGameName" @keyup.enter="searchGame()" placeholder="게임 검색하기">
-      <button id="btnClick" name="btnClick" @click="searchGame()" >검색</button>
+  <!-- Masthead-->
 
-      <li v-for="game in gameList" v-bind:key="game.gameName">
+  <!-- GameSearch Start-->
+
+  <h1 >게임 가격 조회</h1>
+
+  <div id="app">
+    <input type="text" v-model="txtSearchGameName" @keyup.enter="searchGame()" placeholder="게임 검색하기">
+    <button id="btnClick" name="btnClick" @click="searchGame()" >검색</button>
+
+    <li v-for="game in gameList" v-bind:key="game.gameName">
+      <div id="">
         <p>게임명: {{game.name}}</p>
         <p>정가: {{game.initial}}</p>
         <p>할인율: {{game.discount_percent}} %</p>
         <p>판매가격: {{game.price}}</p>
-      </li>
+      </div>
+    </li>
+  </div>
+
+
+  <!-- GameSearch End -->
+
+  <!-- Icons Grid-->
+  <section class="features-icons bg-light text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+            <h3>Fully Responsive</h3>
+            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+            <h3>Bootstrap 5 Ready</h3>
+            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+            <h3>Easy to Use</h3>
+            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+  <!-- Image Showcases-->
+  <section class="showcase">
+    <div class="container-fluid p-0">
+      <div class="row g-0">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Fully Responsive Design</h2>
+          <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+        <div class="col-lg-6 my-auto showcase-text">
+          <h2>Updated For Bootstrap 5</h2>
+          <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
+        </div>
+      </div>
+      <div class="row g-0">
+        <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+        <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+          <h2>Easy to Use & Customize</h2>
+          <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Testimonials-->
+  <section class="testimonials text-center bg-light">
+    <div class="container">
+      <h2 class="mb-5">What people are saying...</h2>
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-1.jpg" alt="..." />
+            <h5>Margaret E.</h5>
+            <p class="font-weight-light mb-0">"This is fantastic! Thanks so much guys!"</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-2.jpg" alt="..." />
+            <h5>Fred S.</h5>
+            <p class="font-weight-light mb-0">"Bootstrap is amazing. I've been using it to create lots of super nice landing pages."</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="assets/img/testimonials-3.jpg" alt="..." />
+            <h5>Sarah W.</h5>
+            <p class="font-weight-light mb-0">"Thanks so much for making these free resources available to us!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Call to Action-->
+  <section class="call-to-action text-white text-center" id="signup">
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-xl-6">
+          <h2 class="mb-4">Ready to get started? Sign up now!</h2>
+          <!-- Signup form-->
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- * * SB Forms Contact Form * *-->
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- This form is pre-integrated with SB Forms.-->
+          <!-- To make this form functional, sign up at-->
+          <!-- https://startbootstrap.com/solution/contact-forms-->
+          <!-- to get an API token!-->
+          <form class="form-subscribe" id="contactFormFooter" data-sb-form-api-token="API_TOKEN">
+            <!-- Email address input-->
+            <div class="row">
+              <div class="col">
+                <input class="form-control form-control-lg" id="txtSearchGameName" type="" placeholder="Email Address" data-sb-validations="required,email" />
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:required">Email Address is required.</div>
+                <div class="invalid-feedback text-white" data-sb-feedback="emailAddressBelow:email">Email Address Email is not valid.</div>
+              </div>
+              <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+            </div>
+            <!-- Submit success message-->
+            <!---->
+            <!-- This is what your users will see when the form-->
+            <!-- has successfully submitted-->
+            <div class="d-none" id="submitSuccessMessage">
+              <div class="text-center mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+                <p>To activate this form, sign up at</p>
+                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+              </div>
+            </div>
+            <!-- Submit error message-->
+            <!---->
+            <!-- This is what your users will see when there is-->
+            <!-- an error submitting the form-->
+            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer-->
+
+
   </body>
+
+
+  메인끝
 </template>
+
 
 <script>
   import axios from "axios";
-  // const URL="http://192.168.50.199:8081/price?item_id=1147560";
-  //let URL = "http://10.10.10.2:81/api/v1/steam/price?item_id="; //Neurotypical
-   // let URL = process.env.VUE_APP_API_URL+`api/v1/steam/pricev2?item_id=`;
-   let URL = process.env.VUE_APP_API_URL;
-  //const URL="https://jsonplaceholder.typicode.com/todos/";
+  let URL = process.env.VUE_APP_API_URL;
 
-  /*{"result":true,"statusCode":200,"responseMessage":"OK","data":{"name":"Neurotypical","initial":"₩ 21,500","discount_percent":"0","price":"₩ 21,500"}}
-  *
-  *  */
+  /**
+   * {"result":true,"statusCode":200,"responseMessage":"OK","data":{"name":"Neurotypical","initial":"₩ 21,500","discount_percent":"0","price":"₩ 21,500"}}
+   * */
 
   export default{
+    head:{
+      script:[
+        {
+          src:"https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js",
+        },
+        {
+          src:"js/scripts.js",
+        },
+        {
+          src:"https://cdn.startbootstrap.com/sb-forms-latest.js",
+        }
+      ]
+    },
     name:"App",
     data(){
       return{
@@ -95,6 +265,8 @@
 
 <style>
 body{
-  padding-top: 10px;
+  padding-top:50px;
 }
+
+@import url("../../css/styles.css");
 </style>

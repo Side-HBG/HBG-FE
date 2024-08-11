@@ -22,6 +22,11 @@ const router = createRouter({
             name: 'mainPage',
             component: () => import("@/views/common/MainPage.vue"),
         },
+        {   //게임 Detail
+            path: '/detail',
+            name: 'Detail',
+            component: () => import("@/views/common/GameDetail.vue"),
+        },
         {
           path:"/404",
           name: "notFound",
